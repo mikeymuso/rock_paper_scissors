@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        let rps = [
+            "rock",
+            "paper",
+            "scissors"
+        ];
+        
+        function computerPlay(){
+            computerSelect = rps[Math.floor(Math.random()*rps.length)];
+            return computerSelect;
+        };
+        
+        
+        
+        function playRound(playerSelect, compSelect){
+            let outcome = ""
+            if (playerSelect == compSelect){
+                outcome = "It's A Draw"
+            } else if (playerSelect == "Rock" && compSelect == "Paper"){
+                outcome = "You Lose"
+            } else if (playerSelect == "Paper" && compSelect == "Scissors"){
+                outcome = "You Lose"
+            } else if (playerSelect == "Scissors" && compSelect == "Rock"){
+                outcome = "You Lose"
+            } else {
+                outcome = "You Win!"
+            }
+            return outcome;
+        };
+        
+        function game(){
+            for (var i = 0; i < 5; i++){
+                
+                const playerInput = prompt("Enter your selection: ");
+                const playerSelect = playerInput.toLowerCase();
+                const compSelect = computerPlay();
+                
+                console.log("You picked: " + playerSelect + " | Computer Picked: " + computerSelect);
+                console.log(playRound(playerSelect, compSelect));
+            }   
+        };
+    
+        game();
+        
+    </script>
+</body>
+</html>
